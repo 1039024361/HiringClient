@@ -53,6 +53,5 @@ export default {
     line-height: 18px;
     padding: 0 12px;
     margin-left: 6px;
-    align-self: baseline;
   }
 </style>

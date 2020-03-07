@@ -11,7 +11,7 @@
           :color="btnProps.color"
           :backgroundColor="btnProps.backgroundColor"
           :border="btnProps.border"
-          :otherStyle="{lineHeight: '16px', marginLeft: 0}"
+          :otherStyle="{lineHeight: '16px', marginLeft: 0, alignSelf: 'baseline'}"
           :clickable="status==='In Progress'"
           @onClick="onProgressClick">
         </h-tag>

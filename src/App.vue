@@ -27,6 +27,10 @@ export default {
     setTransName (name) {
       this.transitionName = name
     }
+  },
+  mounted () {
+    window.vmApp = this
+    localStorage.setItem('router', this.$route.path)
   }
 }
 </script>

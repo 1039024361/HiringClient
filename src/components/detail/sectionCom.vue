@@ -36,7 +36,7 @@
             </TimelineItem>
             </transition>
             <transition-group :name="activities.length >= 3 ? 'hired-trans-other' : ''">
-            <TimelineItem color="#646464" v-for="item in activities" :key="item.time + new Date().valueOf()">
+            <TimelineItem color="#646464" v-for="item in restActivities" :key="item.time + new Date().valueOf()">
                 <Icon type="ios-add-circle-outline" slot="dot" size="29" v-if="item.title=='New contact created'"/>
                 <Icon type="md-document" slot="dot" size="31"  v-else-if="item.title=='Form Filled'"/>
                 <Icon type="ios-call"  slot="dot" size="31"  v-else-if="item.title=='Call'"/>
@@ -175,6 +175,9 @@ export default {
         }
       }
     }
+  },
+  mounted () {
+    window.vmSection = this
   }
 }
 </script>

@@ -8,8 +8,16 @@ import detail from '@/components/detail/index.vue'
 Vue.use(Router)
 
 export default new Router({
-  mode: 'history',
+  // mode: 'history',
   routes: [
+    {
+      path: '/',
+      redirect: { name: 'list' }
+    },
+    {
+      path: '/HiringClient/dist', // for github publish
+      redirect: { name: 'list' }
+    },
     {
       path: '/list',
       name: 'list',

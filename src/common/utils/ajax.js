@@ -1,7 +1,7 @@
 import Axios from 'axios'
 
 // base url for the project
-const baseUrl = 'http://www.mocky.io/v2'
+const baseUrl = 'https://www.mocky.io/v2'
 const axios = Axios.create({
   baseURL: baseUrl,
   timeout: 60000,
