@@ -4,7 +4,7 @@ import Axios from 'axios'
 const baseUrl = 'https://www.mocky.io/v2'
 const axios = Axios.create({
   baseURL: baseUrl,
-  timeout: 60000,
+  timeout: 15000,
   withCredentials: false
 })
 

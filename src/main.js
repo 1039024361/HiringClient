@@ -3,11 +3,15 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import ViewUI from 'view-design'
 import 'view-design/dist/styles/iview.css'
 import './assets/style/common.less' // global style
-
-Vue.use(ViewUI)
+import { Input, Icon, Timeline, TimelineItem, Spin } from 'view-design'
+Vue.component('Input', Input)
+Vue.component('Icon', Icon)
+Vue.component('Timeline', Timeline)
+Vue.component('TimelineItem', TimelineItem)
+Vue.component('Spin', Spin)
+// Vue.use(ViewUI)
 
 Vue.config.productionTip = false
 

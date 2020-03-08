@@ -103,12 +103,12 @@ export default {
         {
           title: 'New contact created',
           time: '12/12/2019 10:59:31am',
-          status: 'Open'
+          status: 'open'
         },
         {
           title: 'Form Filled',
           time: '12/12/2019 10:59:00am',
-          status: 'Open'
+          status: 'open'
         }
       ]
     }
@@ -263,48 +263,48 @@ export default {
       height: auto;
     }
     // modal style
-    .modal {
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: #00000066;
-      z-index: 1000;
-      display: flex;
-      .modal-btn-wraper {
-        display: flex;
-        flex-grow: 1;
-        align-self: flex-end;
-        flex-direction: column;
-        .modal-btn-list {
-          display: flex;
-          flex-direction: column;
-          flex-grow: 1;
-          margin: 9px;
-          text-align: center;
-          font: 20px/24px SF Pro Text;
-          color: #007AFF;
-          background-color: #DDD;
-          border-radius: 10px;
-          .modal-btn {
-            cursor: pointer;
-            height: 62px;
-            line-height: 62px;
-            border-bottom: 1px solid #BBB;
-          }
-        }
-        .modal-cancel-btn {
-          text-align: center;
-          font: 20px SF Pro Text;
-          color: #007AFF;
-          background: #FFFFFF;
-          height: 62px;
-          line-height: 62px;
-          border-radius: 10px;
-          margin:9px 9px 51px 9px;
-        }
-      }
-    }
+    // .modal {
+    //   position: fixed;
+    //   top: 0;
+    //   bottom: 0;
+    //   left: 0;
+    //   right: 0;
+    //   background: #00000066;
+    //   z-index: 1000;
+    //   display: flex;
+    //   .modal-btn-wraper {
+    //     display: flex;
+    //     flex-grow: 1;
+    //     align-self: flex-end;
+    //     flex-direction: column;
+    //     .modal-btn-list {
+    //       display: flex;
+    //       flex-direction: column;
+    //       flex-grow: 1;
+    //       margin: 9px;
+    //       text-align: center;
+    //       font: 20px/24px SF Pro Text;
+    //       color: #007AFF;
+    //       background-color: #DDD;
+    //       border-radius: 10px;
+    //       .modal-btn {
+    //         cursor: pointer;
+    //         height: 62px;
+    //         line-height: 62px;
+    //         border-bottom: 1px solid #BBB;
+    //       }
+    //     }
+    //     .modal-cancel-btn {
+    //       text-align: center;
+    //       font: 20px SF Pro Text;
+    //       color: #007AFF;
+    //       background: #FFFFFF;
+    //       height: 62px;
+    //       line-height: 62px;
+    //       border-radius: 10px;
+    //       margin:9px 9px 51px 9px;
+    //     }
+    //   }
+    // }
   }
 </style>

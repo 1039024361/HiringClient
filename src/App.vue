@@ -7,6 +7,9 @@
     </transition>
     <!-- <Button>iview</Button>
     <phone-outgoing-icon size="1.5x" class="custom-class"></phone-outgoing-icon> -->
+    <Spin size="large" fix v-if="spinShow">
+      <Icon type="ios-loading" size=40 class="spin-icon-loading"></Icon>
+    </Spin>
   </div>
 </template>
 
@@ -15,22 +18,23 @@ export default {
   name: 'App',
   data () {
     return {
-      transitionName: ''
+      transitionName: '',
+      spinShow: false
     }
   },
   provide: function () {
     return {
-      setTransName: this.setTransName
+      setTransName: this.setTransName,
+      setLoading: this.setLoading
     }
   },
   methods: {
     setTransName (name) {
       this.transitionName = name
+    },
+    setLoading (value) {
+      this.spinShow = value
     }
-  },
-  mounted () {
-    window.vmApp = this
-    localStorage.setItem('router', this.$route.path)
   }
 }
 </script>

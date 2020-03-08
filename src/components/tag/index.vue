@@ -9,7 +9,7 @@ export default {
     text: String,
     color: {
       type: String,
-      default: '#ffff'
+      default: '#FFF'
     },
     backgroundColor: {
       type: String,

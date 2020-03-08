@@ -2,7 +2,6 @@
   <div>
     <header-com></header-com>
     <section-com :listData="listData"></section-com>
-    <Spin size="large" fix v-if="spinShow"></Spin>
   </div>
 </template>
 <script>
@@ -11,24 +10,24 @@ import sectionCom from './sectionCom.vue'
 import requestAPI from '@/common/utils/ajax.js'
 import GET_LIST from '../../../API/GET_LIST.js'
 export default {
+  inject: ['setLoading'],
   components: {
     headerCom,
     sectionCom
   },
   data () {
     return {
-      listData: [],
-      spinShow: false
+      listData: []
     }
   },
   methods: {
     async getData () {
-      this.spinShow = true
-      const res = await requestAPI(GET_LIST)
+      this.setLoading(true)
+      const res = await requestAPI(GET_LIST).catch((err) => { console.log(err) })
       if (res && res.responseCode === '10001') {
         this.listData = res.data || []
       }
-      this.spinShow = false
+      this.setLoading(false)
     }
   },
   mounted () {

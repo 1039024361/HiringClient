@@ -1,6 +1,6 @@
 # hiring-agency-web-client
 
-> a hiring agency client
+> <a href="https://1039024361.github.io/HiringClient/dist" target="" title="open the website">a hiring agency client</a>
 
 ## Build Setup
 

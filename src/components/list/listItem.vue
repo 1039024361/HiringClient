@@ -81,6 +81,7 @@ export default {
       display: inline-flex;
       align-items: center;
       flex-wrap: nowrap;
+      cursor: pointer;
     }
   }
 </style>
