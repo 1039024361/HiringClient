@@ -5,7 +5,7 @@
       <div class="name-btn">
         <div class="name-tag">
           <span class="name">{{ info.name }}</span>
-          <h-tag v-if="status=='open'" text="new"></h-tag>
+          <h-tag v-if="status=='open'" text="New"></h-tag>
         </div>
         <h-tag :text="btnProps.text"
           :color="btnProps.color"
