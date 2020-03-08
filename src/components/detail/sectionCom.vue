@@ -20,7 +20,7 @@
             <TimelineItem color="#646464" v-if="activities.length == 4">
                 <Icon type="ios-add-circle-outline" slot="dot" size="29" v-if="activities[0].title=='New contact created'"/>
                 <Icon type="md-document" slot="dot" size="31"  v-else-if="activities[0].title=='Form Filled'"/>
-                <Icon type="ios-call"  slot="dot" size="31"  v-else-if="activities[0].title=='Call'"/>
+                <Icon type="ios-call"  slot="dot" size="24"  v-else-if="activities[0].title=='Call'"/>
                 <award-icon size="2.4x" slot="dot" color="#63D21F" class="custom-class" v-else-if="activities[0].title=='Hired'"></award-icon>
                 <div class="activities-content">
                   <div class="activities-content-title">
@@ -35,11 +35,12 @@
                 </div>
             </TimelineItem>
             </transition>
-            <transition-group :name="activities.length >= 3 ? 'hired-trans-other' : ''">
+            <!-- <transition-group :name="activities.length >= 3 ? 'hired-trans-other' : ''"> -->
+            <transition-group :name="enableAnimation && (activities.length >= 3) ? 'hired-trans-other' : ''">
             <TimelineItem color="#646464" v-for="item in restActivities" :key="item.time + new Date().valueOf()">
                 <Icon type="ios-add-circle-outline" slot="dot" size="29" v-if="item.title=='New contact created'"/>
                 <Icon type="md-document" slot="dot" size="31"  v-else-if="item.title=='Form Filled'"/>
-                <Icon type="ios-call"  slot="dot" size="31"  v-else-if="item.title=='Call'"/>
+                <Icon type="ios-call"  slot="dot" size="24"  v-else-if="item.title=='Call'"/>
                 <award-icon size="2.4x" slot="dot" color="#63D21F" class="custom-class" v-else-if="item.title=='Hired'"></award-icon>
                 <div class="activities-content">
                   <div class="activities-content-title">
@@ -89,6 +90,7 @@ export default {
   data () {
     return {
       showModal: false,
+      enableAnimation: true,
       info: {
         email: 'john@gmail.com',
         phone: '09969712111'
@@ -137,6 +139,7 @@ export default {
     },
     // show hire modal
     confirmHire () {
+      this.enableAnimation = false
       this.showModal = true
       console.log('this.showModal: ', this.showModal)
     },
@@ -144,6 +147,11 @@ export default {
     onModalClick (type) {
       if (type === 'cancel') {
         this.showModal = false
+        this.$nextTick(() => {
+          // setTimeout(() => {
+          //   this.enableAnimation = true
+          // }, 1000)
+        })
       } else if (type === 'hired') {
         this.addActivities(
           {
@@ -154,6 +162,9 @@ export default {
           }
         )
         this.showModal = false
+        this.$nextTick(() => {
+          this.enableAnimation = true
+        })
       }
     }
   },
@@ -263,48 +274,55 @@ export default {
       height: auto;
     }
     // modal style
-    // .modal {
-    //   position: fixed;
-    //   top: 0;
-    //   bottom: 0;
-    //   left: 0;
-    //   right: 0;
-    //   background: #00000066;
-    //   z-index: 1000;
-    //   display: flex;
-    //   .modal-btn-wraper {
-    //     display: flex;
-    //     flex-grow: 1;
-    //     align-self: flex-end;
-    //     flex-direction: column;
-    //     .modal-btn-list {
-    //       display: flex;
-    //       flex-direction: column;
-    //       flex-grow: 1;
-    //       margin: 9px;
-    //       text-align: center;
-    //       font: 20px/24px SF Pro Text;
-    //       color: #007AFF;
-    //       background-color: #DDD;
-    //       border-radius: 10px;
-    //       .modal-btn {
-    //         cursor: pointer;
-    //         height: 62px;
-    //         line-height: 62px;
-    //         border-bottom: 1px solid #BBB;
-    //       }
-    //     }
-    //     .modal-cancel-btn {
-    //       text-align: center;
-    //       font: 20px SF Pro Text;
-    //       color: #007AFF;
-    //       background: #FFFFFF;
-    //       height: 62px;
-    //       line-height: 62px;
-    //       border-radius: 10px;
-    //       margin:9px 9px 51px 9px;
-    //     }
-    //   }
-    // }
+    .modal {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #00000066;
+      z-index: 1000;
+      display: flex;
+      .modal-btn-wraper {
+        display: flex;
+        flex-grow: 1;
+        align-self: flex-end;
+        flex-direction: column;
+        .modal-btn-list {
+          display: flex;
+          flex-direction: column;
+          flex-grow: 1;
+          margin: 9px;
+          text-align: center;
+          font: 20px/24px SF Pro Text;
+          color: #007AFF;
+          background-color: #DDD;
+          border-radius: 10px;
+          .modal-btn {
+            cursor: pointer;
+            height: 62px;
+            line-height: 62px;
+            border-bottom: 1px solid #BBB;
+          }
+        }
+        .modal-cancel-btn {
+          text-align: center;
+          font: 20px SF Pro Text;
+          color: #007AFF;
+          background: #FFFFFF;
+          height: 62px;
+          line-height: 62px;
+          border-radius: 10px;
+          margin:9px 9px 51px 9px;
+        }
+      }
+    }
+    .ivu-icon-ios-call {
+      font-size: 24px;
+      border: 2px solid;
+      border-radius: 14px;
+      position: relative;
+      top: 2px;
+    }
   }
 </style>

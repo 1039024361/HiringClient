@@ -50,7 +50,7 @@ export default {
     text-align: center;
     font-size: 10px;
     height: 20px;
-    line-height: 18px;
+    line-height: 20px;
     padding: 0 12px;
     margin-left: 6px;
   }
